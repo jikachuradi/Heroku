@@ -28,12 +28,23 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label class="col-md-2">性別</label>
+                    <label class="col-md-2" for="gender">性別</label>
                     <div class="col-md-10">
-                        <input type="text" class="form-control" name="gender" value="{{ old('gender') }}">
-                    </div>
+                  <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="gender"  value="男性">
+                  <label class="form-check-label">男性</label>
                 </div>
-                <div class="form-group row">
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="gender"  value="女性">
+                  <label class="form-check-label">女性</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="gender"  value="その他">
+                  <label class="form-check-label">その他</label>
+                </div>
+                </div>
+                </div>
+              <div class="form-group row">
                     <label class="col-md-2">趣味</label>
                     <div class="col-md-10">
                         <input type="text" class="form-control" name="hobby" value="{{ old('hobby') }}">
