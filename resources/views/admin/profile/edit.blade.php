@@ -22,33 +22,43 @@
                 <div class="form-group row">
                     <label class="col-md-2" for="name">氏名</label>
                     <div class="col-md-10">
-                    <input type="text" class="form-control" name="name" value="{{ $profile_form->title }}">
+                    <input type="text" class="form-control" name="name" value="{{ $profile_form->name }}">
+                    </div>
+                </div>
+                 <div class="form-group row">
+                    <label class="col-md-2" for="gender">性別</label>
+                    <div class="col-md-10">
+                  <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="gender"  value="男性">
+                  <label class="form-check-label">男性</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="gender"  value="女性">
+                  <label class="form-check-label">女性</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="gender"  value="その他">
+                  <label class="form-check-label">その他</label>
+                </div>
+                </div>
+                </div>
+              <div class="form-group row">
+                    <label class="col-md-2">趣味</label>
+                    <div class="col-md-10">
+                        <input type="text" class="form-control" name="hobby" value="{{ $profile_form->hobby }}">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label class="col-md-2" for="body">本文</label>
+                    <label class="col-md-2">自己紹介欄</label>
                     <div class="col-md-10">
-                    <textarea class="form-control" name="body" rows="20">{{ $news_form->body }}</textarea>                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-md-2" for="image">画像</label>
-                    <div class="col-md-10">
-                        <input type="file" class="form-control-file" name="image">
-                        <div class="form-text text-info">
-                            設定中: {{ $news_form->image_path }}
-                        </div>
-                        <div class="form-check">
-                            <label class="form-check-label">
-                                <input type="checkbox" class="form-check-input" name="remove" value="true">画像を削除
-                            </label>
+                            <textarea class="form-control" name="introduction" rows="20">{{ $profile_form->introduction }}</textarea>
                         </div>
                     </div>
-                </div>
-                <div class="form-group row">
+                    <div class="form-group row">
                     <div class="col-md-10">
-                        <input type="hidden" name="id" value="{{ $news_form->id }}">
+                        <input type="hidden" name="id" value="{{ $profile_form->id }}">
                         {{ csrf_field() }}
-                        <input type="submit" class="btn btn-primary" value="更新">
+                   <input type="submit" class="btn btn-primary" value="更新">
                     </div>
                 </div>
             </form>
