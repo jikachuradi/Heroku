@@ -5,6 +5,10 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\News;
+//Historyモデルの使用を宣言
+use App\History;
+//Carbon = 日付操作ライブラリ
+use Carbon\Carbon;
 
 class NewsController extends Controller
 {
@@ -87,6 +91,14 @@ public function update(Request $request)
     unset($news_form['_token']);
     //該当するデータを上書きして保存する
     $news->fill($news_form)->save();
+    
+    //History Modelにも編集履歴を追加するよう実装
+    $history = new History;
+    $history->news_id = $news->id;
+    /* Carbonで取得した現在時刻を、
+    Historyモデルの edited_at として記録 */
+    $history->edited_at = Carbon::now();
+    $history->save();
     
     return redirect('admin/news/');
 }
