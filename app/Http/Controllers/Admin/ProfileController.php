@@ -5,6 +5,10 @@ use App\Http\Controllers\Controller;
 
 use App\Profile;
 
+use App\Profilehist;
+
+use Carbon\Carbon;
+
 class ProfileController extends Controller
 {
     //Actionを追加
@@ -63,6 +67,12 @@ public function update(Request $request)
       unset($profile_form['_token']);
     //該当するデータを上書きして保存する
     $profile->fill($profile_form)->save();
+    
+    //Profilehist Modelにも編集履歴を追加
+    $profilehist = new Profilehist;
+    $profilehist->profile_id = $profile->id;
+    $profilehist->edited_at = Carbon::now();
+    $profilehist->save();
     
     return redirect('admin/profile/');
 }
