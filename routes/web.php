@@ -29,10 +29,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get('profile/edit', 'Admin\ProfileController@edit');
     Route::post('profile/edit', 'Admin\ProfileController@update');
     Route::get('profile/delete', 'Admin\ProfileController@delete');
-
 });
 
-
+    Route::get('/', 'NewsController@index');
+    
+    Route::get('/profile', 'ProfileController@index');
 
 
 /*「http://XXXXXX.jp/XXX というアクセスが来たときに、 
