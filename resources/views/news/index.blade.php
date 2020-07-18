@@ -1,6 +1,8 @@
 @extends('layouts.front')
 
 @section('content')
+<div style= "width:930px; margin:0 auto;"><h1>Mynews</h1></div>
+
 <div class="container">
     <hr color="#c0c0c0">
     @if (!is_null($headline))
@@ -8,7 +10,7 @@
         <div class="headline col-md-10 mx-auto">
             <div class="row">
                 <div class="col-md-6">
-                <div class="caption mx-auto">
+　　　　　　　　　<div class="caption mx-auto">
                     <div class="image">
                         @if ($headline->image_path)
                         <img src="{{ asset('storage/image/' . $headline->image_path) }}">
